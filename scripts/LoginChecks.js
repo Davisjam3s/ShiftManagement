@@ -49,17 +49,19 @@ $(document).ready(function() {
 function LoginColleague() {
 	var val1 = $('#ColleagueNumberLogin').val();
 	//alert (val1);
-	$.ajax ({
-		type:'post',
+	$.ajax({
+		type: 'post',
 		url: 'LoginColleague.php',
-		data: {NumberLogin:val1},
-		success: function(response){
+		data: {
+			NumberLogin: val1
+		},
+		success: function(response) {
 			if (response == 1) {
 				alert('this user does not exist');
-				$('#ColleagueNumberLogin').show().prop("disabled",false);
+				$('#ColleagueNumberLogin').show().prop("disabled", false);
 				$('.ColleagueNumberLoginWithCode').show();
 				$('.SessionStuff').load('session.php');
-			}else{
+			} else {
 				//$('.LoginForm').html(response);
 				$(location).attr('href', 'shifts.php')
 			}
